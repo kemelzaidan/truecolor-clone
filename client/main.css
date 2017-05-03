@@ -1,0 +1,16 @@
+/* CSS declarations go here */
+.circle-container {
+	padding: 15px;
+}
+
+.circle {
+	/*border: 10px solid black;*/
+	border-radius: 50%;
+	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	/*color: red;*/
+	padding: 15px;
+}

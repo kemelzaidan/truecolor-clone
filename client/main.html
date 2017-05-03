@@ -1,0 +1,28 @@
+<head>
+  <title>truecolor-clone</title>
+</head>
+
+<body>
+  <h1>Truecolor</h1>
+  {{> circle}}
+  {{> circle}}
+  {{> circle}}
+  {{> circle}}
+</body>
+
+<template name="circle">
+  <div class="circle-container">
+    <div class="circle" style="color:{{color}}; border: 10px solid {{bcolor}}">Color
+    </div>
+  </div>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
