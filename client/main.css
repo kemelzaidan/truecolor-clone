@@ -7,10 +7,17 @@
 	/*border: 10px solid black;*/
 	border-radius: 50%;
 	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	text-align: center;
-	line-height: 80px;
+	line-height: 0;
 	/*color: red;*/
-	padding: 15px;
+	/*padding: 15px;*/
+	display: table;
+	box-sizing: border-box;
+}
+
+.circle-text {
+	display: table-cell;
+  vertical-align: middle;
 }
