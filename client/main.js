@@ -1,10 +1,11 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+var shuffle = require('shuffle-array');
 
 import './main.html';
 
-var colorSet = ['red','yellow','blue','green','orange','turquoise','beige','fuchsia','purple'];
-var colorNames = ['VERMELHO','AMARELO','AZUL','VERDE','LARANJA','TURQUESA','BEGE','ROSA','ROXO'];
+export const colorSet = ['red','yellow','blue','green','orange','turquoise','beige','fuchsia','purple'];
+export const colorNames = ['VERMELHO','AMARELO','AZUL','VERDE','LARANJA','TURQUESA','BEGE','ROSA','ROXO'];
 var limit = colorSet.length;
 
 // var circle1 = new ReactiveDict();
@@ -48,7 +49,7 @@ function make4Circles() {
   for (let i = 0; i < 3; i++) {
     circles.push(getWrongColor());
   }
-  return circles;
+  return shuffle(circles);
 }
 
 // Template.hello.onCreated(function helloOnCreated() {
