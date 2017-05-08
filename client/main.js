@@ -4,14 +4,9 @@ var shuffle = require('shuffle-array');
 
 import './main.html';
 
-export const colorSet = ['red','yellow','blue','green','orange','turquoise','beige','fuchsia','purple'];
+export const colorSet = ['red','gold','blue','green','orange','turquoise','wheat','fuchsia','purple'];
 export const colorNames = ['VERMELHO','AMARELO','AZUL','VERDE','LARANJA','TURQUESA','BEGE','ROSA','ROXO'];
 var limit = colorSet.length;
-
-// var circle1 = new ReactiveDict();
-// var circle2 = new ReactiveDict();
-// var circle3 = new ReactiveDict();
-// var circle4 = new ReactiveDict();
 
 // helper functions
 function getRandomPosition() {
@@ -52,14 +47,14 @@ function make4Circles() {
   return shuffle(circles);
 }
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
+Template.gameArea.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.circleArray = new ReactiveVar(make4Circles());
+});
 
 Template.gameArea.helpers({
   circles: () => {
-    return make4Circles();
+    return Template.instance().circleArray.get();
   }
 });
 
@@ -69,7 +64,7 @@ Template.circle.helpers({
   }
 });
 
-// Template.hello.events({
+// Template.circle.events({
 //   'click button'(event, instance) {
 //     // increment the counter when button is clicked
 //     instance.counter.set(instance.counter.get() + 1);
