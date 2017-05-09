@@ -1,5 +1,5 @@
 import { chai } from 'meteor/practicalmeteor:chai';
-import { colorSet, colorNames, make4Circles } from './main.js';
+import { colorSet, colorNames, make4Circles } from '../imports/make4Circles';
 
 describe('main.js', function () {
   it('colorSet and colorNames should have the same size', function () {
