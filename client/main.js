@@ -50,8 +50,7 @@ function make4Circles() {
   return shuffle(circles);
 }
 
-Template.gameArea.onCreated(function helloOnCreated() {
-  // counter starts at 0
+Template.gameArea.onCreated(function () {
   this.circleArray = new ReactiveVar(make4Circles());
 });
 
