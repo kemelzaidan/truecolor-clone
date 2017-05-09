@@ -18,7 +18,7 @@ function getRightColor() {
   let rightColor = {
     color: colorSet[position],
     name: colorNames[position],
-    attr: 'right',
+    right: 'right-option',
   };
   return rightColor;
 }
@@ -31,8 +31,7 @@ function getWrongColor() {
   }
   let wrongColor = {
     color: colorSet[position1],
-    name: colorNames[position2],
-    attr: 'wrong',
+    name: colorNames[position2]
   };
   return wrongColor;
 }
@@ -64,9 +63,10 @@ Template.circle.helpers({
   }
 });
 
-// Template.circle.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });
+Template.gameArea.events({
+  'click div'(event, instance) {
+    if ( $(event.target).hasClass('right-option') ) {
+      Template.instance().circleArray.set(make4Circles());
+    }
+  },
+});
