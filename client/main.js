@@ -71,9 +71,7 @@ Template.gameArea.helpers({
 
 Template.circle.helpers({
   circle: (circle) => {
-    Meteor.setInterval(() => {
-
-    });
+    return circle;
   }
 });
 
