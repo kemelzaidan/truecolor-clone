@@ -1,12 +1,16 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-var shuffle = require('shuffle-array');
+import { Session } from 'meteor/session';
+
+var shuffle = require('shuffle-array'); // from npm
 
 import './main.html';
 
 export const colorSet = ['red','gold','blue','green','orange','turquoise','wheat','fuchsia','purple'];
 export const colorNames = ['VERMELHO','AMARELO','AZUL','VERDE','LARANJA','TURQUESA','BEGE','ROSA','ROXO'];
+
 var limit = colorSet.length;
+Session.set('alive', true);
 
 // helper functions
 function getRandomPosition() {
@@ -66,7 +70,12 @@ Template.circle.helpers({
 Template.gameArea.events({
   'click div'(event, instance) {
     if ( $(event.target).hasClass('right-option') ) {
+      console.log('clicke on the RIGHT circle!');
       Template.instance().circleArray.set(make4Circles());
+    }
+    else {
+      console.log('clicke on the WRONG circle!');
+      Session.set('alive', false);
     }
   },
 });
