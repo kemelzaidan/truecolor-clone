@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Session } from 'meteor/session';
+
 var shuffle = require('shuffle-array');
 
 import './main.html';
@@ -49,6 +51,10 @@ function make4Circles() {
 Template.gameArea.onCreated(function () {
   this.circleArray = new ReactiveVar(make4Circles());
 });
+
+// Template.progressBar.onCreated(function () {
+//   Session.set('timeleft', 5000);
+// });
 
 Template.gameArea.helpers({
   circles: () => {
