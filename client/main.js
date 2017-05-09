@@ -106,3 +106,5 @@ Template.gameArea.events({
     }
   },
 });
+
+export { make4Circles };
