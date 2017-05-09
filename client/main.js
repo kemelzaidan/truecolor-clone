@@ -63,6 +63,12 @@ Template.circle.helpers({
   }
 });
 
+Template.progressBar.helpers({
+  progress: () => {
+    return 10;
+  }
+});
+
 Template.gameArea.events({
   'click div'(event, instance) {
     if ( $(event.target).hasClass('right-option') ) {
