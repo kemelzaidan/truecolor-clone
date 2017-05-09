@@ -5,7 +5,7 @@ import { Session } from 'meteor/session';
 import { Meteor } from 'meteor/meteor';
 
 // my stuff
-import { make4Circles } from 'imports/make4Circles';
+import { make4Circles } from '../imports/make4Circles';
 
 import './main.html';
 
