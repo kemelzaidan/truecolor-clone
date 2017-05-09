@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Session } from 'meteor/session';
+import { Meteor } from 'meteor/meteor';
 
 var shuffle = require('shuffle-array'); // from npm
 
@@ -50,13 +51,17 @@ function make4Circles() {
   return shuffle(circles);
 }
 
+
+////
+// TEMPLATE HELPERS
+///
 Template.gameArea.onCreated(function () {
   this.circleArray = new ReactiveVar(make4Circles());
 });
 
-// Template.progressBar.onCreated(function () {
-//   Session.set('timeleft', 5000);
-// });
+Template.progressBar.onCreated(function () {
+  Session.set('timeleft', 0);
+});
 
 Template.gameArea.helpers({
   circles: () => {
@@ -66,21 +71,36 @@ Template.gameArea.helpers({
 
 Template.circle.helpers({
   circle: (circle) => {
-    return circle;
+    Meteor.setInterval(() => {
+
+    });
   }
 });
 
 Template.progressBar.helpers({
   progress: () => {
-    return 10;
+    let time = Session.get('timeleft');
+    let timeLimit = 2000;
+    let interval = 100;
+    if (time < timeLimit) {
+      Meteor.setInterval(function(){
+        time += interval;
+        Session.set('timeleft', time);
+      }, interval);
+    }
+    return (time*100)/timeLimit;
   }
 });
 
+////
+// EVENTS
+////
 Template.gameArea.events({
   'click div'(event, instance) {
     if ( $(event.target).hasClass('right-option') ) {
       console.log('clicke on the RIGHT circle!');
       Template.instance().circleArray.set(make4Circles());
+      Session.set('timeleft', 0);
     }
     else {
       console.log('clicke on the WRONG circle!');
