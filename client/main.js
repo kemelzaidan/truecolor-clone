@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Session } from 'meteor/session';
 import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker';
 
 // my stuff
 import { make4Circles } from '../imports/make4Circles';
@@ -10,7 +11,22 @@ import { make4Circles } from '../imports/make4Circles';
 import './main.html';
 
 Session.set('alive', true);
+var progress = new ReactiveVar(0);
 
+function inc(n) {
+  let width = n;
+  progress.set(n);
+  let id = Meteor.setInterval(frame, 20);
+  function frame () {
+    if (width >= 100) {
+      Meteor.clearInterval(id);
+    } else {
+      width += 1;
+      console.log(progress);
+      progress.set(width);
+    }
+  }
+}
 ////
 // TEMPLATE HELPERS
 ///
@@ -19,7 +35,11 @@ Template.gameArea.onCreated(function () {
 });
 
 Template.progressBar.onCreated(function () {
-  Session.set('timeleft', 0);
+  // Session.set('timeleft', 0);
+});
+
+Template.progressBar.onRendered(function () {
+ inc(0);
 });
 
 Template.gameArea.helpers({
@@ -36,16 +56,13 @@ Template.circle.helpers({
 
 Template.progressBar.helpers({
   progress: () => {
-    let time = Session.get('timeleft');
-    let timeLimit = 2000;
-    let interval = 100;
-    if (time < timeLimit) {
-      Meteor.setInterval(function(){
-        time += interval;
-        Session.set('timeleft', time);
-      }, interval);
-    }
-    return (time*100)/timeLimit;
+
+
+    return progress.get();
+    // Tracker.autorun(() => {
+    //   let width = progress.get();
+    //   return move(width);
+    // });
   }
 });
 
@@ -57,7 +74,7 @@ Template.gameArea.events({
     if ( $(event.target).hasClass('right-option') ) {
       console.log('clicke on the RIGHT circle!');
       Template.instance().circleArray.set(make4Circles());
-      Session.set('timeleft', 0);
+      inc(0);
     }
     else {
       console.log('clicke on the WRONG circle!');
