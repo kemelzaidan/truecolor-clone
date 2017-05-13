@@ -3,10 +3,11 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Session } from 'meteor/session';
 import { Meteor } from 'meteor/meteor';
-import { Tracker } from 'meteor/tracker';
+// import { Tracker } from 'meteor/tracker';
 
 // my stuff
 import { make4Circles } from '../imports/make4Circles';
+import clearInterval from '../imports/clearInterval';
 
 import './main.html';
 
@@ -53,7 +54,7 @@ Template.gameArea.events({
   'click div'(event, instance) {
     function frame() {
       if (width >= 100) {
-        Meteor.clearInterval(Session.get('progressID'));
+        clearInterval('progressID');
         Session.set('alive', false);
       } else {
         width++;
@@ -64,7 +65,7 @@ Template.gameArea.events({
 
     if ( $(event.target).hasClass('right-option') ) {
       console.log('clicke on the RIGHT circle!');
-      Meteor.clearInterval(Session.get('progressID'));
+      clearInterval('progressID');
       Template.instance().circleArray.set(make4Circles());
       var elem = $("#myBar");
       var width = 0;
@@ -73,7 +74,7 @@ Template.gameArea.events({
     else {
       console.log('clicke on the WRONG circle!');
       Session.set('alive', false);
-      Meteor.clearInterval(Session.get('progressID'));
+      clearInterval('progressID');
     }
   },
 });
