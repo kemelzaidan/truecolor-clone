@@ -10,13 +10,12 @@ function getRandomPosition() {
   return Math.floor(Math.random() * (limit + 1));
 }
 
-
 function getRightColor() {
   let position = getRandomPosition();
   let rightColor = {
     color: colorSet[position],
     name: colorNames[position],
-    right: 'right-option',
+    option: 'right-option',
   };
   return rightColor;
 }
@@ -29,7 +28,8 @@ function getWrongColor() {
   }
   let wrongColor = {
     color: colorSet[position1],
-    name: colorNames[position2]
+    name: colorNames[position2],
+    option: 'wrong-option'
   };
   return wrongColor;
 }

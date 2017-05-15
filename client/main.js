@@ -21,14 +21,6 @@ Template.gameArea.onCreated(function () {
   this.circleArray = new ReactiveVar(make4Circles());
 });
 
-// Template.progressBar.onCreated(function () {
-//
-// });
-//
-// Template.progressBar.onRendered(function () {
-//
-// });
-
 Template.gameArea.helpers({
   circles: () => {
     return Template.instance().circleArray.get();
@@ -51,14 +43,15 @@ Template.circle.helpers({
 // EVENTS
 ////
 Template.gameArea.events({
-  'click div'(event, instance) {
+  'click .circle'(event, instance) {
     function frame() {
+      console.log('frame on events started...'); // debug
       if (width >= 100) {
         clearInterval('progressID');
         Session.set('alive', false);
       } else {
         width++;
-        console.log(elem);
+        // console.log(elem); // debug
         elem.width(`${width}%`);
       }
     }
@@ -71,7 +64,7 @@ Template.gameArea.events({
       var width = 0;
       Session.set('progressID', Meteor.setInterval(frame, 20));
     }
-    else {
+    else if ($(event.target).hasClass('wrong-option')) {
       console.log('clicke on the WRONG circle!');
       Session.set('alive', false);
       clearInterval('progressID');
