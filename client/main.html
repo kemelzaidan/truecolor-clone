@@ -1,38 +1,16 @@
-<head>
-  <title>truecolor-clone</title>
-</head>
+<template name="layout">
+  <head>
+    <title>truecolor-clone</title>
+  </head>
 
-<body>
-  <h1>Truecolor</h1>
-  <div class="container">
-    <!-- circles -->
-    <div class="row">
-      {{> gameArea}}
-    </div>
-    <!-- progress bar -->
-      {{> progressBar}}
-  </div>
-
-</body>
-
-<template name="progressBar">
-  <div id="myProgress">
-    <div id="myBar"></div>
-  </div>
-</template>
-
-<template name="circle">
-  <div class="col-md-6">
-    <div class="circle-container">
-      <div class="circle {{option}}" style="border: 10px solid {{color}}">
-        <div class="circle-text {{option}}" style="color:{{color}}">{{name}}</div>
+  <body>
+    <div class="container">
+      <!-- circles -->
+      <div class="row">
+        {{> Template.dynamic template=main}}
       </div>
+      <!-- progress bar -->
+      {{> Template.dynamic template=footer}}
     </div>
-  </div>
-</template>
-
-<template name="gameArea">
-  {{#each color in circles}}
-    {{> circle color}}
-  {{/each}}
+  </body>
 </template>
