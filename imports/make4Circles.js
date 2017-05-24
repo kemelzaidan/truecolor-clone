@@ -7,7 +7,7 @@ var limit = colorSet.length;
 
 // helper functions
 function getRandomPosition() {
-  return Math.floor(Math.random() * (limit + 1));
+  return Math.floor(Math.random() * (limit));
 }
 
 function getRightColor() {
