@@ -35,3 +35,31 @@
   line-height: 30px;
   color: white;
 }
+
+.start-img {
+	position: relative;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-text {
+	position: absolute;
+  margin: 0px;
+	font-size: 4em;
+	font-family: Impact, Charcoal, sans-serif;
+
+}
+
+/*rotating image on start screen*/
+.rotate-center {
+	-webkit-animation: rotate-center 30s linear infinite both;
+	        animation: rotate-center 30s linear infinite both;
+}
+
+
+/*pulsating text on start*/
+.pulsate-fwd {
+	-webkit-animation: pulsate-fwd 3s ease-in-out infinite both;
+	        animation: pulsate-fwd 3s ease-in-out infinite both;
+}
