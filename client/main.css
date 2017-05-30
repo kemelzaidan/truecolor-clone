@@ -1,4 +1,36 @@
 /* CSS declarations go here */
+.container {
+	max-width: 800px;
+}
+
+a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+	color: #00001F;
+}
+
+.dist-horizontaly {
+	margin-top: 3em;
+	max-width: 800px; /* bug deveria estar dentro do .container */
+	position: absolute;
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.dist-horizontaly a {
+	display: table-cell;
+	text-align: center;
+}
+
+.btn-circle {
+  width: 3em;
+  height: 3em;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
 .circle-container {
 	padding: 15px;
 }
