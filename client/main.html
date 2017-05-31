@@ -6,9 +6,19 @@
   <body>
     <div class="container">
       <div class="row">
-        <p>
-          Best Score: {{bestScore}} Score: {{score}}
-        </p>
+        <div class="header">
+          <!-- best score -->
+          <div class="best-score-container">
+            <div class="color-circle">
+              <img class="sm-circle color-circle" src="color_wheel.svg"  />
+              <p class="inner-circle-txt score-txt">{{bestScore}}</p>
+            </div>
+          </div>
+          <!-- score container -->
+          <div class="score-container color-circle">
+            <p class="inner-circle-txt score-txt">{{score}}</p>
+          </div>
+        </div>
       </div>
       <!-- circles -->
       <div class="row">

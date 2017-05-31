@@ -8,6 +8,10 @@ a:link, a:visited, a:hover, a:active {
 	color: #00001F;
 }
 
+.header {
+	margin: 3em;
+}
+
 .dist-horizontaly {
 	margin-top: 3em;
 	max-width: 800px; /* bug deveria estar dentro do .container */
@@ -66,19 +70,40 @@ a:link, a:visited, a:hover, a:active {
   color: white;
 }
 
-.start-img {
+.best-score-container {
+	float: left;
+}
+
+.score-container {
+	float: right;
+	width: 50px;
+	height: 50px;
+}
+
+.score-txt {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 1.3em;
+}
+
+.color-circle {
 	position: relative;
 	display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.play-text {
-	position: absolute;
-  margin: 0px;
-	font-size: 4em;
-	font-family: Impact, Charcoal, sans-serif;
+.sm-circle {
+	width: 50px;
+}
 
+.inner-circle-txt {
+	position: absolute;
+	margin: 0px;
+	font-family: Impact, Charcoal, sans-serif;
+}
+
+.play-text {
+	font-size: 4em;
 }
 
 /*rotating image on start screen*/
