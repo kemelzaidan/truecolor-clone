@@ -53,7 +53,7 @@ Template.circle.helpers({
   }
 });
 
-Template.layout.helpers({
+Template.header.helpers({
   score: () => {
     return Session.get('score');
   },

@@ -58,7 +58,7 @@ a:link, a:visited, a:hover, a:active {
 
 #myProgress {
   width: 100%;
-  background-color: #ddd;
+  background-color: lightgrey;
 }
 
 #myBar {
