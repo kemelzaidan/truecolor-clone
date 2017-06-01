@@ -20,6 +20,7 @@ Tracker.autorun(() => {
   let bestScore = Session.get('bestScore');
   if ( score > bestScore ) {
     Session.set('bestScore', score);
+    localStorage.setItem('bestScore', score);
   }
 });
 
@@ -32,7 +33,12 @@ Template.gameArea.onCreated(function () {
 
 Template.layout.onCreated(function () {
   Session.set('score', 0);
-  Session.set('bestScore', 0);
+  if (!localStorage.getItem('bestScore')) {
+    Session.set('bestScore', 0);
+    localStorage.setItem('bestScore', 0);
+  } else {
+    Session.set('bestScore', localStorage.getItem('bestScore'));
+  }
 });
 
 Template.gameArea.helpers({
