@@ -16,14 +16,9 @@ a:link, a:visited, a:hover, a:active {
 	margin-top: 3em;
 	max-width: 800px; /* bug deveria estar dentro do .container */
 	position: absolute;
-	display: table;
 	width: 100%;
-	table-layout: fixed;
-}
-
-.dist-horizontaly a {
-	display: table-cell;
-	text-align: center;
+	display: flex;
+	justify-content: space-around;
 }
 
 .btn-circle {
