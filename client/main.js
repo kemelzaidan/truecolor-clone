@@ -67,34 +67,39 @@ Template.header.helpers({
 ////
 Template.gameArea.events({
   'click .circle'(event, instance) {
-      let score = Session.get('score');
+    let score = Session.get('score');
 
     // progress bar movent function
-    function frame() {
-      console.log('frame on events started...'); // debug
-      if (width >= 100) {
-        clearInterval('progressID');
-        Session.set('alive', false);
-      } else {
-        width++;
-        // console.log(elem); // debug
-        elem.width(`${width}%`);
-      }
-    }
+    // function frame() {
+    //   console.log('frame on events started...'); // debug
+    //   if (width >= 100) {
+    //     clearInterval('progressID');
+    //     Session.set('alive', false);
+    //   } else {
+    //     width++;
+    //     // console.log(elem); // debug
+    //     elem.width(`${width}%`);
+    //   }
+    // }
 
     if ( $(event.target).hasClass('right-option') ) {
+      let elem = $('#myBar');
+      const temp = Template.instance();
+      elem.removeClass('full').addClass('empty');
       console.log('clicked on the RIGHT circle!');
-      clearInterval('progressID');
-      Template.instance().circleArray.set(make4Circles());
-      var elem = $("#myBar");
-      var width = 0;
-      Session.set('progressID', Meteor.setInterval(frame, 20));
-      Session.set('score', score + 1);
-      console.log(`score: ${score}`);
+      Meteor.setTimeout(() => {
+        temp.circleArray.set(make4Circles());
+        // var elem = $("#myBar");
+        // var width = 0;
+        // Session.set('progressID', Meteor.setInterval(frame, 20));
+        Session.set('score', score + 1);
+        console.log(`score: ${score}`);
+        elem.removeClass('empty').addClass('full');
+      }, 10);
     }
     else if ($(event.target).hasClass('wrong-option')) {
       console.log('clicked on the WRONG circle!');
-      clearInterval('progressID');
+      // clearInterval('progressID');
       Session.set('alive', false);
     }
   },

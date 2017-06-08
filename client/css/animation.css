@@ -57,3 +57,25 @@
             transform: scale(1);
   }
 }
+
+/**
+ * ----------------------------------------
+ * animation fill-progress
+ * ----------------------------------------
+ */
+@-webkit-keyframes fill-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes fill-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
