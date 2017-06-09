@@ -1,19 +1,23 @@
 <template name="iconsBarHome">
+  <!--iconsBarHome template-->
   <div class="dist-horizontaly">
+    <!--scores button-->
     <a href="/scores">
       <button type="button" class="btn btn-primary btn-circle">
         <i class="glyphicon glyphicon-list-alt"></i>
       </button>
     </a>
+    <!--user detail button-->
     <a href="/user">
       <button type="button" class="btn btn-success btn-circle">
         <i class="glyphicon glyphicon-user"></i>
       </button>
     </a>
-    <a href="/about">
-      <button type="button" class="btn btn-warning btn-circle">
-        <i class="glyphicon glyphicon-heart"></i>
-      </button>
-    </a>
+    <!--about button-->
+    <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#aboutModal">
+      <i class="glyphicon glyphicon-question-sign"></i>
+    </button>
   </div>
+
+  {{> aboutModal}}
 </template>
