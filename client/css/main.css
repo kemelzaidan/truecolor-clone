@@ -65,6 +65,7 @@ a:link, a:visited, a:hover, a:active {
 	text-align: center;
 	line-height: 30px;
 	color: white;
+	will-change: auto;
 }
 
 .empty {
@@ -124,4 +125,8 @@ a:link, a:visited, a:hover, a:active {
 .pulsate-fwd {
 	-webkit-animation: pulsate-fwd 3s ease-in-out infinite both;
 	        animation: pulsate-fwd 3s ease-in-out infinite both;
+}
+
+.will-transform {
+	will-change: transform;
 }
